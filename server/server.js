@@ -1,7 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const colors = require('colors');
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
+const connectDB = require('./config/db');
+
+
+connectDB();
 
 const {errorHandler} = require('./middleware/errorMiddleware')
 const goalRoutes = require('./routes/goalRoutes');
