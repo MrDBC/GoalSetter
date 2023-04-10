@@ -19,6 +19,10 @@ app.use(express.urlencoded( {extended: false}))
 
 app.use('/api/goals', goalRoutes);
 app.use('/api/users', userRoutes);
+app.get('/', (req, res)=>{
+    res.send('hello to goalsetter API');
+})
+
 app.use(errorHandler);
 
 app.listen(port, ()=>{
