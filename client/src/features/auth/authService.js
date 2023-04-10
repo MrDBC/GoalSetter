@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // "proxy": "http://localhost:5000",
-const API_URL = 'http://localhost:5000/api/users';
+const API_URL = 'https://goalsetter-04n2.onrender.com/api/users';
 
 // register user 
 const register = async( userData)=>{

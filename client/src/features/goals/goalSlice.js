@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/goals';
+const API_URL = 'https://goalsetter-04n2.onrender.com/api/goals';
 const initialState = {
     goals: [],
     isLoading: false,
