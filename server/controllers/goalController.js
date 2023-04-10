@@ -14,7 +14,7 @@ const setGoals = asyncHandler(async (req, res)=>{
         res.status(400);
         throw new Error( 'plz add a text field');
     }
-
+    console.log('set goals server console')
     const goal = await Goal.create({
         user: req.user._id,
         text: req.body.text,
@@ -27,14 +27,15 @@ const setGoals = asyncHandler(async (req, res)=>{
 
 
 const updateGoals = asyncHandler(async(req, res)=>{
+    // console.log(req.params.id, req.body)
     const goal = await Goal.findById(req.params.id);
 
     if( !goal){
         res.status(400);
         throw new Error('goal not found');
     }
-    const user = await User.findById(req.user._id);
-    if( !user){
+
+    if( !req.user){
         res.status(401);
         throw new Error('cant find user');
     }
@@ -60,8 +61,7 @@ const deleteGoals = asyncHandler(async (req, res)=>{
         res.status(400);
         throw new Error('goal not found');
     }
-    const user = await User.findById(req.user._id);
-    if( !user){
+    if( !req.user){
         res.status(401);
         throw new Error('cant find user');
     }
